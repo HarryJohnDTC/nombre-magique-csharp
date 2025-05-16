@@ -8,11 +8,14 @@
         {
             Console.Write("Rentrez un nombre entre " + min + " et " + max + " : ");
             string? nombreStr = Console.ReadLine();
+
+            //Il faut gérer les nullables avec Console.WriteLine
             if (string.IsNullOrWhiteSpace(nombreStr))
             {
                 Console.WriteLine("ERREUR : entrée vide ou invalide");
                 continue;
             }
+            //Après qu'on soit sûre que nombreStr n'est pas null on peut essayer de le parser
             try
             {
                 nombre = int.Parse(nombreStr.Trim());
@@ -57,15 +60,10 @@
             }
             nbVies--;
         }
-        
+
         if (nbVies == 0)
         {
             Console.WriteLine("\nVous avez perdu, le nombre magique était " + NOMBRE_MAGIQUE);
         }
-
-
-
-
-
     }
 }
